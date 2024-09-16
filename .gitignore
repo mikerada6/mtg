@@ -1,33 +1,107 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Ignore Mac system files
+.DS_Store
+.AppleDouble
+.LSOverride
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Icon must end with two \r
+Icon
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# Thumbnails
+._*
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# VSCode specific files
 .vscode/
+
+# Eclipse specific files
+*.launch
+.settings/
+.project
+.classpath
+
+# Maven specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Spring Boot specific files
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+*.tmp
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.iws
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Generated files
+target/
+
+# NetBeans specific files
+nbproject/
+
+# Sublime Text specific files
+*.sublime-workspace
+*.sublime-project
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+
+# Linux specific files
+*~
+
+# Gradle specific files
+.gradle/
+build/
+
+# Node.js / NPM / Yarn specific files
+node_modules/
+
+# Environment variable files
+.env
+*.env
+.env.local
+.env.*.local
+
+# Docker specific files
+*.env
+docker-compose.yml
+docker-compose.override.yml
+
+# Sensitive files
+secrets.yml
+secret.*
+
+# Maven wrapper files
+.mvn/
+
+# Database files
+*.db
+*.sqlite
+*.h2.db
+*.mv.db
+
+# Test reports
+test-output/
+*.html
+*.xml
