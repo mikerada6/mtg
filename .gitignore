@@ -1,24 +1,23 @@
-# Ignore Mac system files
-.DS_Store
-.AppleDouble
-.LSOverride
+# Java
+*.class
+*.jar
+*.war
+*.ear
 
-# Icon must end with two \r
-Icon
+# Logs
+*.log
+logs/
+*.out
 
-# Thumbnails
-._*
+# Spring Boot
+target/
+!src/main/resources/
+!src/test/resources/
+*.iml
+*.iws
 
-# VSCode specific files
-.vscode/
-
-# Eclipse specific files
-*.launch
-.settings/
-.project
-.classpath
-
-# Maven specific files
+# Maven
+.mvn/
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -26,82 +25,37 @@ pom.xml.versionsBackup
 pom.xml.next
 release.properties
 
-# Log files
-*.log
-
-# Temporary files
-*.tmp
-*.bak
-*.swp
-*.swo
-*~
-
-# Spring Boot specific files
-# Logs
-logs/
-*.log
-
-# Temporary files
-tmp/
-*.tmp
-
-# IntelliJ IDEA specific files
-.idea/
-*.iml
-*.iws
-
-# STS (Spring Tool Suite)
-.springBeans
-
-# Generated files
-target/
-
-# NetBeans specific files
-nbproject/
-
-# Sublime Text specific files
-*.sublime-workspace
-*.sublime-project
-
-# Windows specific files
-Thumbs.db
-ehthumbs.db
-
-# Linux specific files
-*~
-
-# Gradle specific files
+# Gradle
 .gradle/
 build/
+!gradle-wrapper.jar
+.gradle-cache/
+gradle-app.setting
+.gradle-build-config/
 
-# Node.js / NPM / Yarn specific files
-node_modules/
+# IDEs and Tools
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
 
-# Environment variable files
-.env
+### Eclipse ###
+.project
+.classpath
+.settings/
+.springBeans
+
+### VS Code ###
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# User-Specific Files
 *.env
+# *.properties
 .env.local
 .env.*.local
-
-# Docker specific files
-*.env
-docker-compose.yml
-docker-compose.override.yml
-
-# Sensitive files
-secrets.yml
-secret.*
-
-# Maven wrapper files
-.mvn/
-
-# Database files
-*.db
-*.sqlite
-*.h2.db
-*.mv.db
-
-# Test reports
-test-output/
-*.html
-*.xml
+secrets/
