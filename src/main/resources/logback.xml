@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Console Appender for all profiles -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Common logging levels for all profiles -->
+    <!-- Set the logging level for Spring Boot dependencies -->
+    <logger name="org.springframework.boot" level="INFO" />
+    <logger name="org.springframework.web" level="INFO" />
+    <logger name="org.springframework.cloud" level="INFO" />
+    <logger name="org.springframework" level="INFO" />
+
+    <!-- Micrometer and Prometheus logging -->
+    <logger name="io.micrometer" level="INFO" />
+    <logger name="io.prometheus" level="INFO" />
+
+    <!-- Actuator specific logging -->
+    <logger name="org.springframework.boot.actuate" level="INFO" />
+
+    <!-- Lombok specific logging -->
+    <logger name="lombok" level="INFO" />
+
+    <!-- Default configuration for local dev environment -->
+    <springProfile name="default">
+        <appender name="FILE_DEV" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!-- Dev log file path -->
+            <file>/Users/mradas341/Desktop/logs/rezatron-mtg.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>/Users/mradas341/Desktop/logs/rezatron-mtg.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <maxHistory>30</maxHistory>
+                <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <maxFileSize>10MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
+            </rollingPolicy>
+            <encoder>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+
+        <!-- Root logger configuration for dev -->
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE_DEV" />
+        </root>
+    </springProfile>
+
+    <!-- Production configuration -->
+    <springProfile name="!default">
+        <appender name="FILE_PROD" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!-- Prod log file path -->
+            <file>/opt/tomcat/logs/rezatron-mtg/rezatron-mtg.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>/opt/tomcat/logs/rezatron-mtg/rezatron-mtg.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <maxHistory>30</maxHistory>
+                <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <maxFileSize>10MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
+            </rollingPolicy>
+            <encoder>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+
+        <!-- Root logger configuration for prod -->
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE_PROD" />
+        </root>
+    </springProfile>
+
+</configuration>
